@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <title>DINER PRE-order Food and Restaurant reservation Website</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <link rel="script" href="login_signup/signup.js">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<header>
+    <nav>
+        <ul class="ul1">
+            <li class="li1"><a href="#home"><strong class="nav-text">Home</strong></a></li>
+            <li class="li1"><a href="#Services"><strong class="nav-text">Services</strong></a></li>
+            <li class="li1"><a href="#about"><strong class="nav-text"> About</strong></a></li>
+            <li class="li1"><a href="#contactus"><strong class="nav-text"> Contact</strong></a></li>
+        </ul>
+        <ul>
+            <li><button class="butn-2" onclick="document.getElementById('id01').style.display='block'"
+                    style="width:auto;"><a href="#">Login In</a></button></li>
+            <li><button class="butn-2" onclick="document.getElementById('id01').style.display='block'"
+                    style="width:auto;"><a href="#">Sign Up</a></button></li>
+        </ul>
+    </nav>
+</header>
+<main>
+
+
+
+    <!--<button onclick="document.getElementById('id01').style.display='block'"
+                    style="width:auto;">Login</button>-->
+
+    <div id="id01" class="modal ">
+        <!-- container div -->
+        <div class="container2">
+            <div class="container  animate">
+
+                <!-- upper button section to select
+                    the login or signup form -->
+                <div class="slider"></div>
+                <div class="btn">
+                    <button class="login">Login</button>
+                    <button class="signup">Signup</button>
+                </div>
+
+                <!-- Form section that contains the
+                    login and the signup form -->
+                <div class="form-section">
+
+                    <!-- login form -->
+                    <div class="login-box ">
+                        <input type="email" class="email ele" placeholder="youremail@email.com">
+                        <input type="password" class="password ele" placeholder="password">
+                        <a class="forgot-pass" href="#">Forgot your password?</a>
+                        <button class="clkbtn">Login</button>
+                    </div>
+
+                    <!-- signup form -->
+
+                    <div class="signup-box">
+                        <form method ="post" action=""> {% csrf_token %}
+                        <!---   <form class="form20" name="myform" method="post" onsubmit="return validateForm()">-->
+                        <input type="text" name="name" class="name ele" placeholder="Enter your name" id="sname" required>
+                        <input type="email" name="email" class="email ele" placeholder="youremail@email.com" id="semail" required>
+                        <input type="text" name="number" class="number ele" placeholder="Enter your Number" id="snumber" required>
+                        <input type="password" name="password" class="password ele" placeholder="password" id-="spassword" required>
+                        <input type="password" name="conform_Password" class="conform_Password ele"
+                            placeholder="Confirm password" id="scpassword" required style="margin-top: 10px;">
+
+                    <input type="submit" class="clkbtn" value="submit" id="signup" myvar="{{warning}}">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div> <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                class="cancelbtn close">X</button></div>
+    </div>
+</main>
+
+
+
+<body>
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Delicious Food PRE_Odered From Our Website Straight to Your Table without Waiting Time.</h1>
+            <br>
+            <p>when You <strong>PRE_Order FOOD</strong> online Then No Need <strong>Wait</strong> for <strong>Food and
+                    TABLE</strong> in
+                RESTAURANT and Enjoy HasselFree
+                <strong> Dining Experience</strong> With Your favorite dishes When odered from the comfort
+                of your Own Device.
+            </p>
+           <form method="post" action="">{% csrf_token %}
+            <a href="#"><input type="submit" class="butn" value="Choose Your Location"></a>
+            <input name="address_search" class="address-search" type="search" id="address_search"
+                placeholder="Enter your address" inputmode="search" autocomplete="ON">
+            </form>
+            <label for="address_search" class="location-logo"><svg width="24" height="24" viewBox="0 0 24 24"
+                    fill="#000000" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2.234 12.055l9.082.035c.141 0 .2.058.2.2l.023 9.023c0 1.418 1.711 1.71 2.332.386l8.965-19.183c.656-1.418-.469-2.332-1.793-1.711L1.766 9.78c-1.23.574-.961 2.262.468 2.274z"
+                        fill="#000"></path>
+                </svg></label>
+        </div>
+    </section>
+
+    <section class="menu" id="Services">
+        <h2>Our Restaurant</h2>
+        <p>Check out our delicious selection of Dishes and PRE-Reserve Tables and PRE-order FOOD .</p>
+
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200" alt="Dish 1">
+                <h3>Dish 1</h3>
+                <p>Description of dish 1.</p>
+                <span class="price">$10.99</span>
+                <button class="butn-1"><a href="#">Order Now</a></button>
+
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200" alt="Dish 2">
+                <h3>Dish 2</h3>
+                <p>Description of dish 2.</p>
+                <span class="price">$8.99</span>
+                <button class="butn-1"><a href="#">Order Now</a></button>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/200" alt="Dish 3">
+                <h3>Dish 3</h3>
+                <p>Description of dish 3.</p>
+                <span class="price">$12.99</span>
+                <button class="butn-1"><a href="#">Order Now</a></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>Learn more about our restaurant and our mission.</p>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Story</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum massa euismod nulla sollicitudin,
+                    at malesuada orci consectetur. Integer blandit turpis ac sapien vulputate, ut efficitur leo
+                    vestibulum. Donec vehicula, dolor nec molestie dictum, nulla orci placerat dolor, ut ultricies metus
+                    nibh non libero.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://via.placeholder.com/600x300" alt="About Us Image">
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contactus">
+
+        <!--Section heading-->
+        <h2 class="contact-us-text">CONTACT US</h2>
+        <!--Section description-->
+        <p class="contact-us-para">Do you have any questions? Please do not hesitate to contact us
+            directly. Our team will come back to you within
+            a matter of hours to help you.</p>
+
+        <form class="form1">
+            <h2>CONTACT US</h2>
+            <p type="Name:"><input placeholder="Write your name here..."></input></p>
+            <p type="Email:"><input placeholder="Let us know how to contact you back..."></input></p>
+            <p type="Message:"><input placeholder="What would you like to tell us..."></input></p>
+            <button>Send Message</button>
+
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-text">
+            <p class="footer-p">&copy; 2023 Food Delivery and Restaurant Website. All Rights Reserved.</p>
+        </div>
+        <br>
+
+        <div class="social-media">
+
+            <a href="#"><img class="insta" src="images/insta1.png" alt="Instagram"></a>
+            <a href="#"><img class="fb" src="images/fb1.png" alt="Facebook"></a>
+            <a href="#"><img class="twit" src="https://via.placeholder.com/30" alt="Twitter"></a>
+        </div>
+
+    </footer>
+
+</body>
+
+
+
+<script>
+    var modal = document.getElementById('id01');
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+
+
+    let signup = document.querySelector(".signup");
+    let login = document.querySelector(".login");
+    let slider = document.querySelector(".slider");
+    let formSection = document.querySelector(".form-section");
+
+    signup.addEventListener("click", () => {
+        slider.classList.add("moveslider");
+        formSection.classList.add("form-section-move");
+    });
+
+    login.addEventListener("click", () => {
+        slider.classList.remove("moveslider");
+        formSection.classList.remove("form-section-move");
+    });
+/*
+                function validateForm() {
+                    var name = document.myform.name.value;
+                    var email = document.myform.email.value;
+                    var telephone = document.myform.number.value;
+                    var password = document.myform.password.value;
+                    var conform_password = document.myform.conform_Password.value;
+                    if (name == NULL || name == "") {
+                        alert("Name cannot be empty")
+                        return false;
+                    }
+                    elseif(password.lenght < 6)
+                    {
+                        alert("password must be at least 6 letters long")
+                        return false;
+                    }
+
+                    if (password == conform_password) {
+                        return true;
+                    }
+                    else {
+                        alert("passward did not match")
+                        return false;
+                    }
+
+                    if (isNaN(telephone)) {
+                        alert("number cannot be letters")
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }*/
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+      $(document).ready(function(){
+        $('#signup').click(function(){
+             var k=document.getElementById('signup').getAttribute('myvar');
+             alert(k);
+             })
+       })
+</script>
+</html>
